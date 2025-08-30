@@ -6,7 +6,7 @@ checkexist() {
     test -f $@.sh 2>&1 >/dev/null
 }
 
-if ! test -d colab-scripts; then
+if ! test -d /content/colab-scripts; then
     git clone --depth 1 https://github.com/imwithye/colab-scripts.git /content/colab-scripts
 fi
 

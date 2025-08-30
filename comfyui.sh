@@ -5,15 +5,22 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $SCRIPT_DIR/deps.sh
 
-cd /content
+if ! checkfolder /content/drive/MyDrive; then
+    echo "Google Drive not mounted. Please mount Google Drive in the Colab interface." >&2
+    exit 1
+fi
 
+mkdir -p /content
+mkdir -p /content/drive/MyDrive/Workspace
+
+# Install ComfyUI
 if ! test -d /content/ComfyUI; then
     git clone --depth 1 https://github.com/comfyanonymous/ComfyUI.git /content/ComfyUI
-    cd ComfyUI
+    cd /content/ComfyUI
     pip install -r requirements.txt
 fi
 
-USERDATA_DIR=$WORKSPACE_DIR/ComfyUI
+USERDATA_DIR=/content/drive/MyDrive/Workspace/ComfyUI
 mkdir -p $USERDATA_DIR
 cd $USERDATA_DIR
 
