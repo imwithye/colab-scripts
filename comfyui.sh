@@ -12,23 +12,22 @@ if ! test -d /content/ComfyUI; then
 fi
 
 mkdir -p $WORKSPACE_DIR/ComfyUI
-cd $WORKSPACE_DIR/ComfyUI
 
-mkdir -p user
+mkdir -p $WORKSPACE_DIR/user
 rm -rf /content/ComfyUI/user
-ln -sf $SCRIPT_DIR/user /content/ComfyUI/user
+ln -sf $WORKSPACE_DIR/user /content/ComfyUI/user
 
-mkdir -p input
+mkdir -p $WORKSPACE_DIR/input
 rm -rf /content/ComfyUI/input
-ln -sf $SCRIPT_DIR/input /content/ComfyUI/input
+ln -sf $WORKSPACE_DIR/input /content/ComfyUI/input
 
-mkdir -p output
+mkdir -p $WORKSPACE_DIR/output
 rm -rf /content/ComfyUI/output
-ln -sf $SCRIPT_DIR/output /content/ComfyUI/output
+ln -sf $WORKSPACE_DIR/output /content/ComfyUI/output
 
-mkdir -p models
+mkdir -p $WORKSPACE_DIR/models
 rm -rf /content/ComfyUI/models
-ln -sf $SCRIPT_DIR/models /content/ComfyUI/models
+ln -sf $WORKSPACE_DIR/models /content/ComfyUI/models
 
 cd /content/ComfyUI
 pm2 start "python main.py --port 8188" --name comfyui
