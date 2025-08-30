@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $SCRIPT_DIR/deps.sh
 
@@ -11,24 +13,26 @@ if ! test -d /content/ComfyUI; then
     pip install -r requirements.txt
 fi
 
-mkdir -p $WORKSPACE_DIR/ComfyUI
+USERDATA_DIR=$WORKSPACE_DIR/ComfyUI
+mkdir -p $USERDATA_DIR
+cd $USERDATA_DIR
 
-mkdir -p $WORKSPACE_DIR/user
+mkdir -p $USERDATA_DIR/user
 rm -rf /content/ComfyUI/user
-ln -sf $WORKSPACE_DIR/user /content/ComfyUI/user
+ln -sf $USERDATA_DIR/user /content/ComfyUI/user
 
-mkdir -p $WORKSPACE_DIR/input
+mkdir -p $USERDATA_DIR/input
 rm -rf /content/ComfyUI/input
-ln -sf $WORKSPACE_DIR/input /content/ComfyUI/input
+ln -sf $USERDATA_DIR/input /content/ComfyUI/input
 
-mkdir -p $WORKSPACE_DIR/output
+mkdir -p $USERDATA_DIR/output
 rm -rf /content/ComfyUI/output
-ln -sf $WORKSPACE_DIR/output /content/ComfyUI/output
+ln -sf $USERDATA_DIR/output /content/ComfyUI/output
 
-mkdir -p $WORKSPACE_DIR/models
+mkdir -p $USERDATA_DIR/models
 rm -rf /content/ComfyUI/models
-ln -sf $WORKSPACE_DIR/models /content/ComfyUI/models
+ln -sf $USERDATA_DIR/models /content/ComfyUI/models
 
 cd /content/ComfyUI
+pm2 delete comfyui 2>&1 >/dev/null || true
 pm2 start "python main.py --port 8188" --name comfyui
-pm2 start "cloudflared tunnel --url http://localhost:8188" --name comfyui-tunnel --restart-delay=5000 --watch
