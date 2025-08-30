@@ -30,5 +30,6 @@ mkdir -p models
 rm -rf /content/ComfyUI/models
 ln -sf $SCRIPT_DIR/models /content/ComfyUI/models
 
+cd /content/ComfyUI
 pm2 start "python main.py --port 8188" --name comfyui
 pm2 start "cloudflared tunnel --url http://localhost:8188" --name comfyui-tunnel --restart-delay=5000 --watch
