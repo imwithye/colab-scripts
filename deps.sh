@@ -21,3 +21,7 @@ fi
 if ! checkpipinstall lightning; then
     pip install lightning
 fi
+
+if ! checkpipinstall gymnasium; then
+    pip install gymnasium
+fi
