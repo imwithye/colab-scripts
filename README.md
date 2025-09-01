@@ -6,13 +6,13 @@ Handy scripts to help you make the most of Google Colab.
 ## Useful Tools and Libraries
 
 ```
-!curl -sSL https://colab-scripts.yiwei.workers.dev | bash
+!curl -sSL https://colab-scripts.yiwei.dev | bash
 ```
 
 ## ComfyUI
 
 ```
-!curl -sSL https://colab-scripts.yiwei.workers.dev | bash -s -- comfyui
+!curl -sSL https://colab-scripts.yiwei.dev | bash -s -- comfyui
 !pm2 list
 ```
 

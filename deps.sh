@@ -22,6 +22,6 @@ if ! checkpipinstall lightning; then
     pip install lightning
 fi
 
-if ! checkpipinstall gymnasium; then
-    pip install gymnasium
+if ! checkpipinstall stable-baselines3; then
+    pip install stable-baselines3
 fi
