@@ -13,7 +13,6 @@ Handy scripts to help you make the most of Google Colab.
 
 ```
 !curl -sSL https://colab-scripts.yiwei.dev | bash -s -- comfyui
-!pm2 list
 ```
 
 Then to show it on the UI
@@ -21,4 +20,18 @@ Then to show it on the UI
 ```python
 from google.colab import output
 output.serve_kernel_port_as_iframe(8188, height='960')
+```
+
+## KASM VNC Server
+
+```
+!curl -sSL https://colab-scripts.yiwei.dev | bash -s -- kasm
+```
+
+KASM VNC Server requires manual setup. Please follow the instructions provided in the output. If you need create a window from the Jupyter Notebook, use
+
+```python
+import os
+
+os.environ["DISPLAY"] = ":1"
 ```
