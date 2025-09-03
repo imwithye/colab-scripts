@@ -7,7 +7,7 @@ source $SCRIPT_DIR/deps.sh
 
 if ! checkinstall vncserver; then
     DEBIAN_FRONTEND=noninteractive apt install -qq -y dbus-x11 xfce4 xfce4-terminal
-    rm -f /tmp/kasm.deb
+    rm -f /tmp/libssl1.1.deb
     wget -O /tmp/libssl1.1.deb http://ftp.de.debian.org/debian/pool/main/o/openssl/libssl1.1_1.1.1w-0+deb11u1_amd64.deb
     DEBIAN_FRONTEND=noninteractive apt install -qq -y /tmp/libssl1.1.deb
     rm -f /tmp/kasm.deb
