@@ -15,9 +15,10 @@ if ! checkinstall vncserver; then
     DEBIAN_FRONTEND=noninteractive apt-get install -qq -y /tmp/kasm.deb
 fi
 
+echo "" >&2
 echo "================ Kasm VNC Server ================" >&2
 echo "Run 'vncserver' to start the VNC server." >&2
 echo "Run 'pm2 start --name kasmvnc \"cloudflared tunnel --url \$VNC_URL --no-tls-verify\"' to access the VNC server." >&2
 echo "Run 'pm2 list' to list the processes." >&2
-echo "Run 'pm2 logs kasmvnc' to see the logs." >&2
+echo "Run 'pm2 logs kasmvnc --lines 1000' to see the logs." >&2
 echo "Run 'pm2 delete kasmvnc' to delete the process." >&2

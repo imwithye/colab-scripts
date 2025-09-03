@@ -44,7 +44,8 @@ cd /content/ComfyUI
 pm2 delete comfyui 2>&1 >/dev/null || true
 pm2 start "python main.py --port 8188" --name comfyui
 
+echo "" >&2
 echo "================ ComfyUI ================" >&2
 echo "Run 'pm2 list' to list the processes." >&2
-echo "Run 'pm2 logs comfyui' to see the logs." >&2
+echo "Run 'pm2 logs comfyui --lines 1000' to see the logs." >&2
 echo "Run 'pm2 delete comfyui' to delete the process." >&2
