@@ -15,5 +15,5 @@ if ! checkinstall vncserver; then
     DEBIAN_FRONTEND=noninteractive apt-get install -qq -y /tmp/kasm.deb
 fi
 
-echo "Run 'vncserver' to start the VNC server."
-echo "Run 'pm2 start \"cloudflared tunnel --url \$VNC_URL --no-tls-verify\"' to access the VNC server."
+echo "Run 'vncserver' to start the VNC server." >&2
+echo "Run 'pm2 start \"cloudflared tunnel --url \$VNC_URL --no-tls-verify\"' to access the VNC server." >&2

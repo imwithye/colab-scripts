@@ -16,8 +16,8 @@ checkfolder() {
 
 if ! checkinstall cloudflared; then
     rm -f /tmp/cloudflared.deb
-    wget -O /tmp/cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-    DEBIAN_FRONTEND=noninteractive apt install -qq -y /tmp/cloudflared.deb
+    wget -q -O /tmp/cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+    DEBIAN_FRONTEND=noninteractive apt-get install -qq -y /tmp/cloudflared.deb
 fi
 
 if ! checkinstall pm2; then
