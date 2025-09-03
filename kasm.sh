@@ -16,4 +16,4 @@ if ! checkinstall vncserver; then
 fi
 
 echo "Run 'vncserver' to start the VNC server."
-echo "Run 'pm2 start \"cloudflared tunnel --url https://172.28.0.12:8444 --no-tls-verify\"' to access the VNC server."
+echo "Run 'pm2 start \"cloudflared tunnel --url \$VNC_URL --no-tls-verify\"' to access the VNC server."
