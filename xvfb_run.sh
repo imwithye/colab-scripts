@@ -12,6 +12,6 @@ fluxbox &
 
 x11vnc -display :1 -rfbauth ~/.vnc/passwd -forever -shared -rfbport 5900 -ncache 10 &
 
-./noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6080 &
+/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6080 &
 
 wait
