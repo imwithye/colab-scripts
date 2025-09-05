@@ -10,7 +10,7 @@ sleep 1
 
 fluxbox &
 
-x11vnc -display :1 -nopw -forever -shared -rfbport 5900 -ncache 10 &
+x11vnc -display :1 -nopw -forever -shared -rfbport 5900 &
 
 /noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6080 &
 
