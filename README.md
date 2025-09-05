@@ -35,3 +35,24 @@ import os
 
 os.environ["DISPLAY"] = ":1"
 ```
+
+## Xvfb VNC
+
+```
+!curl -sSL colab-scripts.yiwei.dev | bash -s -- xvfb
+```
+
+Then to show it on the UI
+
+```python
+from google.colab import output
+output.serve_kernel_port_as_iframe(6080, path='/vnc.html', height='960')
+```
+
+If you need create a window from the Jupyter Notebook, use
+
+```python
+import os
+
+os.environ["DISPLAY"] = ":1"
+```
