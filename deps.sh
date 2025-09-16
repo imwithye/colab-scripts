@@ -15,7 +15,7 @@ checkfolder() {
 }
 
 apt update
-apt install --qq -y tmux fzf
+apt install -qq -y tmux fzf
 
 # Cloudflared
 if ! checkinstall cloudflared; then
