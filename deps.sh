@@ -28,6 +28,7 @@ fi
 # NodeJS
 if ! checkinstall nvm; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    source /home/ubuntu/.nvm/nvm.sh
     nvm install --lts
 fi
 
