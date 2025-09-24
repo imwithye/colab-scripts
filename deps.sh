@@ -28,13 +28,13 @@ fi
 # NodeJS
 if ! checkinstall nvm; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-    source $HOME/.nvm/nvm.sh
-    nvm install --lts
+    source $HOME/.bashrc
 fi
 
 # Bun JavaScript
 if ! checkinstall bun; then
     curl -fsSL https://bun.sh/install | bash
+    source $HOME/.bashrc
 fi
 
 # http-server
